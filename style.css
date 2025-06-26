@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #222;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls > * {
+  flex: 1 1 120px;
+}
+
+.controls input,
+.controls select {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.controls button {
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #0056b3;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  justify-content: flex-end;
+}
+
+/* Month Label */
+.month-label {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Calendar */
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fdfdfd;
+  min-height: 80px;
+  padding: 6px;
+  position: relative;
+  font-size: 15px;
+  text-align: left;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.day.header {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.day .event-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+/* Event Categories */
+.event-dot.personal {
+  background-color: #007bff;
+}
+
+.event-dot.work {
+  background-color: #28a745;
+}
+
+.event-dot.birthday {
+  background-color: #ffc107;
+}
+
+.event-dot.holiday {
+  background-color: #dc3545;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  width: 320px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-content button {
+  padding: 8px 12px;
+  margin: 5px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#save-event {
+  background-color: #28a745;
+  color: white;
+}
+
+#close-modal {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Event List */
+#event-list {
+  margin-top: 30px;
+}
+
+#event-list h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+#event-list ul {
+  list-style: disc;
+  padding-left: 25px;
+}
+
+#event-list li {
+  margin-bottom: 10px;
+}
+
+#event-list button {
+  margin-left: 8px;
+  padding: 3px 7px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+#event-list button:first-of-type {
+  background-color: #ffc107;
+  color: #333;
+}
+
+#event-list button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark .container {
+  background-color: #1e1e1e;
+}
+
+body.dark .day {
+  background-color: #2b2b2b;
+  border-color: #444;
+}
+
+body.dark .day.header {
+  background-color: #555;
+}
+
+body.dark .modal-content {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+body.dark input,
+body.dark select {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+body.dark #event-list button:first-of-type {
+  background-color: #e0a800;
+  color: black;
+}

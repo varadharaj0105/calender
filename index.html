@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Web Calendar</h1>
+
+    <div class="controls">
+      <button onclick="prevMonth()">&#8592;</button>
+
+      <input type="number" id="year-input" min="1900" max="2100" onchange="setYearMonth()" />
+      
+      <select id="month-select" onchange="setYearMonth()">
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+      </select>
+
+      <label class="toggle">
+        <input type="checkbox" id="dark-mode-toggle" />
+        Dark Mode
+      </label>
+
+      <button onclick="nextMonth()">&#8594;</button>
+    </div>
+
+    <div id="current-month-year" class="month-label"></div>
+    <div id="calendar"></div>
+
+    <!-- Event Modal -->
+    <div class="modal" id="event-modal">
+      <div class="modal-content">
+        <h3 id="modal-title">Add Event</h3>
+        <input type="text" id="event-name" placeholder="Event Name" />
+        <input type="text" id="event-time" placeholder="Time (e.g. 10:00 AM)" />
+        <select id="modal-category">
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="birthday">Birthday</option>
+          <option value="holiday">Holiday</option>
+        </select>
+        <button id="save-event">Save Event</button>
+        <button id="close-modal">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Event List -->
+    <div id="event-list">
+      <h3>Events This Month</h3>
+      <ul></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
